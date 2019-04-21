@@ -22,17 +22,11 @@ const alterEgo = () => {
   .then(response => response.json())
   .then(data => {
     const number = getRandomNumber(9);
+    const number2 = getRandomNumber(9);
     console.log(number);
-    console.log(data[number].name);
+    console.log(number2);
     results2.innerHTML = `you belong in ${data[number].name},`
-  })
-  fetch('https://www.anapioficeandfire.com/api/houses')
-  .then(response => response.json())
-  .then(data => {
-    const number = getRandomNumber(9);
-    console.log(number);
-    console.log(data[number].region);
-    results3.innerHTML = `and you were born in ${data[number].region}.`
+    results3.innerHTML = `and you were born in ${data[number2].region}.`
   })
 }
 
@@ -42,7 +36,7 @@ const deadOrAlive = () => {
   if (number % 3 === 0) {
     results1.innerHTML = `You're dead 💀`;
     results2.innerHTML = `I'm sorry`;
-    results3.innerHTML = 'The night is dark and full of terrors.'
+    results3.innerHTML = 'The Night is dark and full of terrors.'
   } else {
     alterEgo();
   }
