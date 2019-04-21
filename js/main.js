@@ -4,27 +4,26 @@ const btn = document.querySelector('.btn');
 const results1 = document.querySelector('.results1');
 const results2 = document.querySelector('.results2');
 const results3 = document.querySelector('.results3');
-const imgResults = document.querySelector('.results-image');
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
 const alterEgo = () => {
-  fetch('https://www.anapioficeandfire.com/api/characters?page=3')
+  const nameNumber = getRandomNumber(213)
+  fetch(`https://www.anapioficeandfire.com/api/characters?page=${nameNumber}`)
   .then(response => response.json())
   .then(data => {
     const number = getRandomNumber(9);
-    console.log(number);
-    results1.innerHTML = `Your name is ${data[number].name}, `;
+    const splitName = data[number].name.split(' ');
+    results1.innerHTML = `Your name is ${splitName[0]}, `;
   });
-  fetch('https://www.anapioficeandfire.com/api/houses')
+  const houseNumber = getRandomNumber(8)
+  fetch(`https://www.anapioficeandfire.com/api/houses?pagesize=50&page=${houseNumber}`)
   .then(response => response.json())
   .then(data => {
-    const number = getRandomNumber(9);
-    const number2 = getRandomNumber(9);
-    console.log(number);
-    console.log(number2);
+    const number = getRandomNumber(49);
+    const number2 = getRandomNumber(49);
     results2.innerHTML = `you belong in ${data[number].name},`
     results3.innerHTML = `and you were born in ${data[number2].region}.`
   })
@@ -32,7 +31,6 @@ const alterEgo = () => {
 
 const deadOrAlive = () => {
   const number = getRandomNumber(100);
-  console.log(number);
   if (number % 3 === 0) {
     results1.innerHTML = `You're dead 💀`;
     results2.innerHTML = `I'm sorry`;
