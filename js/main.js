@@ -6,7 +6,7 @@ const results2 = document.querySelector('.results2');
 const results3 = document.querySelector('.results3');
 
 function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (min - max));
+  return Math.floor(Math.random() * (max - min));
 }
 
 const alterEgo = () => {
