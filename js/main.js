@@ -32,6 +32,7 @@ const alterEgo = () => {
 
 const deadOrAlive = () => {
   const number = getRandomNumber(0, 100);
+  console.log(number);
   if (number % 3 === 0) {
     results1.innerHTML = `You're dead 💀`;
     results2.innerHTML = `I'm sorry`;
