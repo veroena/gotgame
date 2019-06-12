@@ -34,10 +34,10 @@ const deadOrAlive = () => {
   if (number % 3 === 0) {
     results1.innerHTML = `You're dead 💀`;
     results2.innerHTML = `I'm sorry`;
-    results3.innerHTML = 'The Night is dark and full of terrors.'
+    results3.innerHTML = 'The Night is dark and full of terrors.';
   } else {
     alterEgo();
   }
-}
+};
 
 btn.addEventListener('click', deadOrAlive);
